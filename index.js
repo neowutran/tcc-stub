@@ -108,7 +108,7 @@ function serveUnfriendUser(message){
 	});
 }
 
-function tcc_chat(){
+function tcc_chat(dispatch){
 	
 	if(server != false){
 		server.close();
@@ -173,7 +173,7 @@ let instance = false;
 module.exports = function TccStub(dispatch) {
 
     if(instance == false){
-		instance = new tcc_chat();
+		instance = new tcc_chat(dispatch);
 	}
 	return instance;
     
