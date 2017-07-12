@@ -1,5 +1,6 @@
 var net = require('net');
 var server = false;
+var dispatch = false;
 
 //ex_tooltip&uid=uid&name=name
 function serveExTooltipRequest(message){        
@@ -170,10 +171,11 @@ function tcc_chat(dispatch){
 		
 }
 let instance = false;
-module.exports = function TccStub(dispatch) {
+module.exports = function TccStub(d) {
 
     if(instance == false){
-		instance = new tcc_chat(dispatch);
+		dispatch = d;
+		instance = new tcc_chat();
 	}
 	return instance;
     
